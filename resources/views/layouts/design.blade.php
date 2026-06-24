@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+
+<!-- Mirrored from themesflat.co/html/vemus/home-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Mar 2026 11:55:49 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Vemus - Jewelry Ecommerce HTML Template</title>
+    <meta name="author" content="themesflat.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description"
+        content="Themesflat Vemus - A modern and elegant Jewelry Ecommerce HTML Template, perfect for online stores selling rings, necklaces, watches, and other accessories. SEO-optimized, fast-loading, and fully customizable.">
+
+    <!-- font -->
+    <link rel="stylesheet" href="{{asset('site/fonts/fonts.css')}}">
+    <link rel="stylesheet" href="{{asset('site/icon/icomoon/style.css')}}">
+    <!-- css -->
+    <link rel="stylesheet" href="{{asset('site/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('site/css/swiper-bundle.min.css')}}">
+    <link rel="stylesheet" href="{{asset('site/css/animate.css')}}">
+    <link rel="stylesheet" href="../../../sibforms.com/forms/end-form/build/sib-styles.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('site/css/styles.css')}}">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="{{asset('site/images/logo/short-logo.svg')}}">
+    <link rel="apple-touch-icon-precomposed" href="{{asset('site/images/logo/short-logo.svg')}}">
+
+</head>
+
+<body>
+
+    <!-- Scroll Top -->
+    <button id="goTop">
+        <span class="border-progress"></span>
+        <span class="icon icon-arrow-right-2"></span>
+    </button>
+
+    <!-- preload -->
+    <div class="preload preload-container" id="preload">
+        <div class="preload-logo">
+            <div class="spinner"></div>
+        </div>
+    </div>
+    <!-- /preload -->
+
+    <div id="wrapper">
+        <!-- Top Bar-->
+        <div class="tf-topbar p-0 style-2">
+
+            
+
+            <div class="topbar-botom bg-primary d-none d-xl-block">
+                <div class="container-3">
+                    <div class="row align-items-center">
+                        <div class="col-3">
+                            <ul class="box-action justify-content-start">
+                                <li>
+                                    <i class="icon-phone text-white"></i>
+                                    <a href="tel:85332453" class="text-caption text-white link-secondary">(61) 8533 2453</a>
+                                </li>
+                                <li class="br-line bg-white"></li>
+                                <li>
+                                    <i class="icon-location text-white"></i>
+                                    <a href="#register" class="text-caption text-white link-secondary">Our Store</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <div class="countdown-V01 text-xs text-white">
+                                <span>Get 30% off and FREE SHIPPING. Sale ends in</span>
+                                <div class="count-down">
+                                    <div class="js-countdown" data-timer="993299" data-labels="d : ,h : ,m : , s">
+                                    </div>
+                                </div>
+                                <span>-</span>
+                                <a href="shop-default.html" class="tf-btn-line style-white-2 lh-20"><span class="text-xs">SHOP NOW</span></a>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="tf-dropdown-wrap justify-content-end">
+
+                                <!-- <div class="tf-currencies">
+                                    <select class="tf-dropdown-select style-default color-white type-currencies">
+                                        <option selected>USD ($)</option>
+                                        <option>RUB (€)</option>
+                                        <option>Germany EUR (€)</option>
+                                        <option>Vietnam VND (₫)</option>
+                                    </select>
+                                </div> -->
+
+                                <div class="tf-languages">
+                                    <select class="tf-dropdown-select style-default color-white type-languages">
+                                        <option>EN</option>
+                                        <option>العربية</option>
+                                        <option>简体中文</option>
+                                        <option>اردو</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Top Bar -->
+        <!-- Header -->
+        <header class="tf-header header-absolute-2 type-2">
+            <div class="container-3">
+                <div class="row align-items-center">
+                    <div class="col-md-4 col-3 d-xl-none">
+                        <a href="#mobileMenu" data-bs-toggle="offcanvas" class="btn-mobile-menu">
+                            <span></span>
+                        </a>
+                    </div>
+                    <div class="col-xl-5 d-none d-xl-block">
+                        <nav class="box-navigation">
+                            <ul class="box-nav-menu justify-content-start">
+                                <li class="menu-item active">
+                                    <a href="{{route('homepage')}}" class="item-link">Home</a>
+                                    
+                                </li>
+
+
+                                <li class="menu-item position-relative">
+                                    <a href="javascript:void(0)" class="item-link">
+                                        Products
+                                        <i class="icon icon-arrow-angle-down"></i>
+                                    </a>
+                                    <div class="sub-menu">
+                                        <div class="mega-menu-item">
+                                            <p class="text-caption menu-heading">Products</p>
+                                            <ul class="menu-list">
+                                                @foreach($globalCategories as $globalCategory)
+                                                <li><a href="{{route('category-products',['slug'=>$globalCategory->categoryTranslations->where('locale',App::getLocale())->first()->slug])}}" class="menu-link-text link">{{$globalCategory->categoryTranslations->where('locale',App::getLocale())->first()->name}}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+
+                               
+
+
+                                <li class="menu-item">
+                                    <a href="{{route('contact_en')}}" class="item-link">Contact Us</a>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-6">
+                        <a href="{{route('homepage')}}" class="logo-site justify-content-center w-100">
+                            <img src="{{asset('site/images/logo/logo.svg')}}" alt="" class="logo-black">
+                            <img src="{{asset('site/images/logo/logo-white.svg')}}" alt="" class="logo-white">
+                        </a>
+                    </div>
+                    <div class="col-xl-5 col-md-4 col-3">
+                        <div class="header-right justify-content-end align-items-center">
+                            <form class="form-search style-radius style-white d-none d-xl-block">
+                                <fieldset>
+                                    <input type="text" placeholder="Search for anything..." class="bg-transparent" name="text" tabindex="0" value=""
+                                        aria-required="true" required>
+                                </fieldset>
+                                <button type="submit" class="link"><i class="icon icon-search"></i></button>
+                            </form>
+                            <ul class="nav-icon">
+                                <li class="d-inline-flex d-xl-none">
+                                    <a href="#search" data-bs-toggle="offcanvas" class="nav-icon-item text-black link">
+                                        <i class="icon icon-search"></i>
+                                    </a>
+                                </li>
+
+                                
+                                <li class="d-inline-flex">
+                                    <a href="{{route('basket')}}" class="nav-icon-item text-black link">
+
+                                        <i class="icon icon-cart"></i>
+                                        <span class="count-notice"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- /Header -->
+		 @yield('content')
+		<!-- Footer -->
+        <footer class="tf-footer">
+
+            <div class="footer-body p-xl-0">
+                <div class="container">
+                    <div class="row-footer">
+                        <div class="col-s1">
+                            <div class="footer-inner-wrap flex-lg-nowrap align-items-end">
+                                <div class="box-title">
+                                    <h6>JOIN THE <span class="text-primary">#VEMUS</span> TRIBE</h6>
+                                    <p class="notice font-2">
+                                        <span class="fst-italic">Shiny Things</span>
+                                        Await - 10% Off Inside!
+                                    </p>
+                                </div>
+                                <div class="box-email">
+                                    <p class="text-body text-main-3">Get early access to new products, exclusive deals & more.</p>
+                                    <div class="sib-form form-email">
+                                        <div id="sib-form-container" class="sib-form-container">
+                                            <div id="error-message" class="sib-form-message-panel">
+                                                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                                                    <span class="sib-form-message-panel__inner-text">Your subscription could not be saved. Please try again.
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div id="success-message" class="sib-form-message-panel">
+                                                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                                                    <span class="sib-form-message-panel__inner-text">Your subscription has been successful.
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div id="sib-container" class="sib-container--large sib-container--vertical">
+                                                <form id="sib-form" method="POST" class="form-newsletter"
+                                                    action="https://3c02c1a1.sibforms.com/serve/MUIFAOAhSCDRnPhdPWLTpLBkaFR0CvSbJ_okYrjCbXQRLkZZU67Hn2jdn18hTWJuGupI4VUfB4deuJIyP5yRoHWVb9pIrENAMcal9Jtz8q_qN4dpHNMIG454DwSVNVmnLXuePoOCvDqN_Vvs0ga_kzg7ouD63HjCaukRz3LGCQsfnQJBN4-KS2D3DVitqvFsDHSqevjjqLk2xFO4"
+                                                    data-type="subscription">
+                                                    <div>
+                                                        <div class="sib-form-block">
+                                                            <p></p>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="sib-form-block">
+                                                            <div class="sib-text-form-block">
+                                                                <p></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="sib-input sib-form-block mb-0">
+                                                            <div class="form__entry entry_block">
+                                                                <div class="form__label-row mb-0">
+                                                                    <label class="entry__label" for="EMAIL"></label>
+                                                                    <div class="entry__field">
+                                                                        <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off"
+                                                                            placeholder="Your_email@example.com" data-required="true"
+                                                                            required />
+                                                                    </div>
+                                                                </div>
+                                                                <label class="entry__error entry__error--primary text-center"></label>
+                                                                <label class="entry__specification"></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="sib-optin sib-form-block">
+                                                            <div class="form__entry entry_mcq">
+                                                                <div class="form__label-row mb-0">
+                                                                    <div class="entry__choice">
+                                                                        <label>
+                                                                            <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" />
+                                                                            <span class="checkbox checkbox_tick_positive"></span>
+                                                                            <span>
+                                                                                <p></p>
+                                                                            </span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <label class="entry__error entry__error--primary"></label>
+                                                                <label class="entry__specification"></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-group">
+                                                        <div class="sib-form-block">
+                                                            <button
+                                                                class="sib-form-block__button sib-form-block__button-with-loader subscribe-button btn-submit link"
+                                                                form="sib-form" type="submit">
+                                                                <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
+                                                                    viewBox="0 0 512 512">
+                                                                    <path
+                                                                        d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z">
+                                                                    </path>
+                                                                </svg>
+                                                                <span class="icon-arrow-right-2"></span>
+                                                            </button>
+                                                            <!-- <button
+                                                                class="sib-form-block__button sib-form-block__button-with-loader btn-style-2 radius-12 w-100 justify-content-center"
+                                                                form="sib-form" type="submit">
+                                                                <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
+                                                                    viewBox="0 0 512 512">
+                                                                    <path
+                                                                        d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z">
+                                                                    </path>
+                                                                </svg>
+                                                                <span class="text text-btn-uppercase">SUBSCRIBE</span>
+                                                            </button> -->
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" name="email_address_check" value="" class="input--hidden">
+                                                    <input type="hidden" name="locale" value="en">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-s2">
+                            <div class="footer-inner-wrap flex-sm-nowrap s2">
+                                <div class="footer-col-block">
+                                    <p class="footer-heading footer-heading-mobile font-2">
+                                        find us
+                                    </p>
+                                    <div class="tf-collapse-content">
+                                        <ul class="footer-menu-list mb-24">
+                                            <li>
+                                                <p class="text-main-4">Find a location nearest you.</p>
+                                            </li>
+                                            <li><a href="https://www.google.com/maps?q=123+Yarran+st,Punchbowl,NSW+202196,Australia" target="_blank"
+                                                    class="text-main-4 link text-decoration-underline">See Our Stores</a></li>
+                                            <li><a href="tel:6483441233" class="text-main-4 link">(64) 8344 1233</a></li>
+                                            <li><a href="mailto:hello@vemus.com" class="text-main-4 link">hello@vemus.com</a></li>
+                                        </ul>
+                                        <ul class="tf-social-icon">
+                                            <li>
+                                                <a href="https://www.facebook.com/" target="_blank" class="social-facebook">
+                                                    <span class="icon"><i class="icon-facebook"></i></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.instagram.com/" target="_blank" class="social-instagram">
+                                                    <span class="icon"><i class="icon-instagram"></i></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://x.com/" target="_blank" class="social-x">
+                                                    <span class="icon"><i class="icon-x"></i></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.snapchat.com/" target="_blank" class="social-snapchat">
+                                                    <span class="icon"><i class="icon-snapchat"></i></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="footer-col-block p-xl-0">
+                                    <p class="footer-heading footer-heading-mobile font-2">
+                                        HELP
+                                    </p>
+                                    <div class="tf-collapse-content">
+                                        <ul class="footer-menu-list">
+                                            <li><a href="shipping.html" class="text-main-4 link">Shipping</a></li>
+                                            <li><a href="return.html" class="text-main-4 link">Returns</a></li>
+                                            <li><a href="privacy.html" class="text-main-4 link">Privacy Policy</a></li>
+                                            <li><a href="wishlist.html" class="text-main-4 link">My Wishlist</a></li>
+                                            <li><a href="compare.html" class="text-main-4 link">Compare</a></li>
+                                            <li><a href="faq.html" class="text-main-4 link">FAQ’s</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="footer-col-block">
+                                    <p class="footer-heading footer-heading-mobile font-2">
+                                        ABOUT US
+                                    </p>
+                                    <div class="tf-collapse-content">
+                                        <ul class="footer-menu-list">
+                                            <li><a href="about-us.html" class="text-main-4 link">Our Story</a></li>
+                                            <li><a href="our-store.html" class="text-main-4 link">Visit Our Store</a></li>
+                                            <li><a href="contact-us.html" class="text-main-4 link">Contact Us</a></li>
+                                            <li><a href="account-page.html" class="text-main-4 link">Account</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="footer-bottom-wrap">
+                        <div class="footer-bar-language">
+                            <div class="tf-currencies">
+                                <select class="tf-dropdown-select style-default type-currencies">
+                                    <option selected>United States (USD $)</option>
+                                    <option>France (EUR €)</option>
+                                    <option>Germany (EUR €)</option>
+                                    <option>Vietnam (VND ₫)</option>
+                                </select>
+                            </div>
+                            <div class="tf-languages">
+                                <select class="tf-dropdown-select style-default type-languages">
+                                    <option>English</option>
+                                    <option>العربية</option>
+                                    <option>简体中文</option>
+                                    <option>اردو</option>
+                                </select>
+                            </div>
+                        </div>
+                        <p class="text-nocopy">
+                            All Rights Reserved 2025 VEMUS.
+                        </p>
+                        <ul class="paymend-method-list">
+                            <li><a href="#"><img src="{{asset('site/images/payment/am-ex.svg')}}" alt="Paymend Method"></a></li>
+                            <li><a href="#"><img src="{{asset('site/images/payment/apple-pay.svg')}}" alt="Paymend Method"></a></li>
+                            <li><a href="#"><img src="{{asset('site/images/payment/dinner.svg')}}" alt="Paymend Method"></a></li>
+                            <li><a href="#"><img src="{{asset('site/images/payment/discover.svg')}}" alt="Paymend Method"></a></li>
+                            <li><a href="#"><img src="{{asset('site/images/payment/gg-pay.svg')}}" alt="Paymend Method"></a></li>
+                            <li><a href="#"><img src="{{asset('site/images/payment/master-2.svg')}}" alt="Paymend Method"></a></li>
+                            <li><a href="#"><img src="{{asset('site/images/payment/master.svg')}}" alt="Paymend Method"></a></li>
+                            <li><a href="#"><img src="{{asset('site/images/payment/shop-pay.svg')}}" alt="Paymend Method"></a></li>
+                            <li><a href="#"><img src="{{asset('site/images/payment/unicon-pay.svg')}}" alt="Paymend Method"></a></li>
+                            <li><a href="#"><img src="{{asset('site/images/payment/visa.svg')}}" alt="Paymend Method"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- /Footer -->
+    </div>
+    <!-- Mobile Menu -->
+    <div class="offcanvas offcanvas-start canvas-mb" id="mobileMenu">
+        <span class="icon-close-popup" data-bs-dismiss="offcanvas">
+            <i class="icon-close"></i>
+        </span>
+        <div class="mb-canvas-content">
+            <div class="mb-body">
+                <div class="mb-content-top">
+                    <form class="form-search">
+                        <fieldset>
+                            <input type="text" placeholder="Search for anything..." class="" name="text" tabindex="0" value="" aria-required="true"
+                                required="">
+                        </fieldset>
+                        <button type="submit" class="link"><i class="icon icon-search"></i></button>
+                    </form>
+                    <ul class="nav-ul-mb" id="wrapper-menu-navigation">
+
+
+                        <li class="nav-mb-item">
+                            <a href="{{route('homepage')}}" class="mb-menu-link">Home</a>
+                        </li>
+
+                        <li class="nav-mb-item">
+                            <a href="#dropdown-menu-blog" class="collapsed mb-menu-link" data-bs-toggle="collapse" aria-expanded="true"
+                                aria-controls="dropdown-menu-blog">
+                                <span>Products</span>
+
+                                <span class="btn-open-sub"></span>
+                            </a>
+                            <div id="dropdown-menu-blog" class="collapse">
+                                <ul class="sub-nav-menu">
+
+                                    @foreach($globalCategories as $globalCategory)
+                                    <li><a href="{{route('category-products',['slug'=>$globalCategory->categoryTranslations->where('locale',App::getLocale())->first()->slug])}}" class="sub-nav-link">{{$globalCategory->categoryTranslations->where('locale',App::getLocale())->first()->name}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </li>
+
+
+                        <li class="nav-mb-item">
+                            <a href="{{route('contact_en')}}" class="mb-menu-link">Contact Us</a>
+                        </li>
+
+                        
+                        
+                        
+
+                    </ul>
+                </div>
+                <div class="mb-other-content">
+                    <div class="group-icon">
+                        <a href="wishlist.html" class="site-nav-icon">
+                            <i class="icon icon-hearth"></i>
+                            Wishlist
+                        </a>
+                        <p data-bs-dismiss="offcanvas">
+                            <a href="#log" data-bs-toggle="modal" class="site-nav-icon">
+                                <i class="icon icon-user"></i>
+                                Login
+                            </a>
+                        </p>
+                    </div>
+                    <div class="mb-notice">
+                        <a href="contact-us.html" class="text-need">Need Help?</a>
+                    </div>
+                    <ul class="mb-info">
+                        <li>
+                            <p>Address:
+                                <a href="https://www.google.com/maps?q=123+Yarran+St,+Punchbowl,+NSW+2196,+Australia" class="fw-medium"
+                                    target="_blank">
+                                    123 Yarran st, Punchbowl, NSW 2196, Australia
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            Email:
+                            <a href="mailto:hello@vemus.com" class="fw-medium">hello@vemus.com</a>
+                        </li>
+                        <li>
+                            Phone:
+                            <a href="tel:6483441233" class="fw-medium">(64) 8344 1233</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mb-bottom">
+                <div class="bottom-bar-language">
+                    <div class="tf-currencies">
+                        <select class="tf-dropdown-select style-default type-currencies">
+                            <option selected>USD ($)</option>
+                            <option>EUR (€)</option>
+                            <option>EUR (€)</option>
+                            <option>VND (₫)</option>
+                        </select>
+                    </div>
+                    <div class="tf-languages">
+                        <select class="tf-dropdown-select style-default type-languages">
+                            <option>English</option>
+                            <option>العربية</option>
+                            <option>简体中文</option>
+                            <option>اردو</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Mobile Menu -->
+    <!-- Login -->
+    <div class="modal modalCentered fade modal-log" id="log">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-top">
+                    <span class="icon-close-popup" data-bs-dismiss="modal">
+                        <i class="icon-close"></i>
+                    </span>
+                    <h3 class="title fw-normal text-uppercase">login</h3>
+                </div>
+                <div class="modal-bottom">
+                    <form class="form-log">
+                        <div class="form-content">
+                            <fieldset class="tf-field">
+                                <input class="tf-input" type="text" placeholder value="Hello@vemus.com" required>
+                                <label class="tf-lable">Username *</label>
+                            </fieldset>
+                            <fieldset class="tf-field password-wrapper">
+                                <input class="tf-input password-field" type="password" placeholder required>
+                                <label class="tf-lable">Password *</label>
+                                <span class=" toggle-pass icon-show-password"></span>
+                            </fieldset>
+                        </div>
+                        <div class="bottom">
+                            <div class="checkbox-wrap">
+                                <input id="remember" type="checkbox" class="tf-check">
+                                <label for="remember">Remember me</label>
+                            </div>
+                            <a href="#reset" data-bs-toggle="offcanvas" class="link">
+                                Forgot password?
+                            </a>
+                        </div>
+                        <button type="submit" class="btn-submit tf-btn btn-fill-2 w-100">
+                            LOG IN
+                        </button>
+                    </form>
+                    <div class="other-login">
+                        <a href="#" class="tf-btn btn-fill-3 ic-abs w-100 fw-medium">
+                            <span class="icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="12" fill="#3B5998" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M15.1163 7.992L13.9867 7.99275C13.101 7.99275 12.9293 8.4135 12.9293 9.03075V10.3927H15.042L14.7667 12.5265H12.9293V18H10.7265V12.5265H8.8845V10.3927H10.7265V8.82C10.7265 6.99375 11.8417 6 13.47 6C14.25 6 14.9205 6.05775 15.1163 6.084V7.992ZM12 0C5.373 0 0 5.37225 0 12C0 18.627 5.373 24 12 24C18.6278 24 24 18.627 24 12C24 5.37225 18.6278 0 12 0Z"
+                                        fill="white" />
+                                </svg>
+                            </span>
+                            Log in with Facebook
+                        </a>
+                        <a href="#" class="tf-btn style-2 ic-abs w-100 fw-medium">
+                            <span class="icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                        <path
+                                            d="M23.0938 9.91258L13.3045 9.91211C12.8722 9.91211 12.5218 10.2625 12.5218 10.6947V13.822C12.5218 14.2542 12.8722 14.6046 13.3044 14.6046H18.8172C18.2135 16.1712 17.0869 17.4832 15.6494 18.3168L18 22.386C21.7707 20.2052 24 16.3789 24 12.0955C24 11.4857 23.9551 11.0497 23.8652 10.5587C23.7968 10.1858 23.473 9.91258 23.0938 9.91258Z"
+                                            fill="#167EE6" />
+                                        <path
+                                            d="M12 19.3037C9.30218 19.3037 6.94699 17.8297 5.68207 15.6484L1.61304 17.9938C3.68374 21.5826 7.56283 23.9994 12 23.9994C14.1768 23.9994 16.2307 23.4133 18 22.3919V22.3863L15.6494 18.3171C14.5742 18.9408 13.3299 19.3037 12 19.3037Z"
+                                            fill="#12B347" />
+                                        <path
+                                            d="M18 22.3932V22.3876L15.6494 18.3184C14.5741 18.9419 13.33 19.3049 12 19.3049V24.0006C14.1767 24.0006 16.2308 23.4145 18 22.3932Z"
+                                            fill="#0F993E" />
+                                        <path
+                                            d="M4.69566 12.0003C4.69566 10.6705 5.05856 9.42637 5.68205 8.3512L1.61302 6.00586C0.586031 7.76962 0 9.81797 0 12.0003C0 14.1826 0.586031 16.2309 1.61302 17.9947L5.68205 15.6494C5.05856 14.5742 4.69566 13.3301 4.69566 12.0003Z"
+                                            fill="#FFD500" />
+                                        <path
+                                            d="M12 4.69566C13.7593 4.69566 15.3753 5.32078 16.6375 6.36061C16.9489 6.61711 17.4014 6.59859 17.6867 6.31336L19.9024 4.09758C20.2261 3.77395 20.203 3.24422 19.8573 2.94431C17.7425 1.10967 14.991 0 12 0C7.56283 0 3.68374 2.41673 1.61304 6.00558L5.68207 8.35092C6.94699 6.16969 9.30218 4.69566 12 4.69566Z"
+                                            fill="#FF4B26" />
+                                        <path
+                                            d="M16.6374 6.36061C16.9488 6.61711 17.4015 6.59859 17.6866 6.31336L19.9024 4.09758C20.226 3.77395 20.2029 3.24422 19.8573 2.94431C17.7425 1.10962 14.991 0 12 0V4.69566C13.7592 4.69566 15.3752 5.32078 16.6374 6.36061Z"
+                                            fill="#D93F21" />
+                                    </g>
+                                </svg>
+                            </span>
+                            Log in with Google
+                        </a>
+                    </div>
+                    <div class="text-center">
+                        <a href="#register" data-bs-toggle="modal" class="tf-btn-line">
+                            <span class="text-body">
+                                New customer? Create your account
+                            </span>
+                            <i class="icon-arrow-top-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /Login -->
+    <!-- Register -->
+    <div class="modal modalCentered fade modal-log" id="register">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-top">
+                    <span class="icon-close-popup" data-bs-dismiss="modal">
+                        <i class="icon-close"></i>
+                    </span>
+                    <h3 class="title fw-normal text-uppercase">create account</h3>
+                </div>
+                <div class="modal-bottom">
+                    <form class="form-log">
+                        <div class="form-content">
+                            <fieldset class="tf-field">
+                                <input class="tf-input" type="text" placeholder required>
+                                <label class="tf-lable">First name *</label>
+                            </fieldset>
+                            <fieldset class="tf-field">
+                                <input class="tf-input" type="text" placeholder required>
+                                <label class="tf-lable">Last name *</label>
+                            </fieldset>
+                            <fieldset class="tf-field">
+                                <input class="tf-input" type="email" placeholder value="Hello@vemus.com" required>
+                                <label class="tf-lable">Email *</label>
+                            </fieldset>
+                            <fieldset class="tf-field password-wrapper">
+                                <input class="tf-input password-field" type="password" placeholder required>
+                                <label class="tf-lable">Password *</label>
+                                <span class=" toggle-pass icon-show-password"></span>
+                            </fieldset>
+                        </div>
+                        <div class="bottom">
+                            <div class="checkbox-wrap align-items-start">
+                                <input id="confirm" type="checkbox" class="tf-check flex-shrink-0">
+                                <label for="confirm" class="text-caption">
+                                    Yes, sign me up for the Vemus Newsletter. I confirm I am over 16 years old. I would
+                                    like to receive digital
+                                    communications (email and SMS) from Vemus about Vemus products and exclusive offers.
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit tf-btn btn-fill-2 w-100">
+                            LOG IN
+                        </button>
+                    </form>
+                    <div class="other-login">
+                        <a href="#" class="tf-btn btn-fill-3 ic-abs w-100 fw-medium">
+                            <span class="icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="12" fill="#3B5998" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M15.1163 7.992L13.9867 7.99275C13.101 7.99275 12.9293 8.4135 12.9293 9.03075V10.3927H15.042L14.7667 12.5265H12.9293V18H10.7265V12.5265H8.8845V10.3927H10.7265V8.82C10.7265 6.99375 11.8417 6 13.47 6C14.25 6 14.9205 6.05775 15.1163 6.084V7.992ZM12 0C5.373 0 0 5.37225 0 12C0 18.627 5.373 24 12 24C18.6278 24 24 18.627 24 12C24 5.37225 18.6278 0 12 0Z"
+                                        fill="white" />
+                                </svg>
+                            </span>
+                            Log in with Facebook
+                        </a>
+                        <a href="#" class="tf-btn style-2 ic-abs w-100 fw-medium">
+                            <span class="icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                        <path
+                                            d="M23.0938 9.91258L13.3045 9.91211C12.8722 9.91211 12.5218 10.2625 12.5218 10.6947V13.822C12.5218 14.2542 12.8722 14.6046 13.3044 14.6046H18.8172C18.2135 16.1712 17.0869 17.4832 15.6494 18.3168L18 22.386C21.7707 20.2052 24 16.3789 24 12.0955C24 11.4857 23.9551 11.0497 23.8652 10.5587C23.7968 10.1858 23.473 9.91258 23.0938 9.91258Z"
+                                            fill="#167EE6" />
+                                        <path
+                                            d="M12 19.3037C9.30218 19.3037 6.94699 17.8297 5.68207 15.6484L1.61304 17.9938C3.68374 21.5826 7.56283 23.9994 12 23.9994C14.1768 23.9994 16.2307 23.4133 18 22.3919V22.3863L15.6494 18.3171C14.5742 18.9408 13.3299 19.3037 12 19.3037Z"
+                                            fill="#12B347" />
+                                        <path
+                                            d="M18 22.3932V22.3876L15.6494 18.3184C14.5741 18.9419 13.33 19.3049 12 19.3049V24.0006C14.1767 24.0006 16.2308 23.4145 18 22.3932Z"
+                                            fill="#0F993E" />
+                                        <path
+                                            d="M4.69566 12.0003C4.69566 10.6705 5.05856 9.42637 5.68205 8.3512L1.61302 6.00586C0.586031 7.76962 0 9.81797 0 12.0003C0 14.1826 0.586031 16.2309 1.61302 17.9947L5.68205 15.6494C5.05856 14.5742 4.69566 13.3301 4.69566 12.0003Z"
+                                            fill="#FFD500" />
+                                        <path
+                                            d="M12 4.69566C13.7593 4.69566 15.3753 5.32078 16.6375 6.36061C16.9489 6.61711 17.4014 6.59859 17.6867 6.31336L19.9024 4.09758C20.2261 3.77395 20.203 3.24422 19.8573 2.94431C17.7425 1.10967 14.991 0 12 0C7.56283 0 3.68374 2.41673 1.61304 6.00558L5.68207 8.35092C6.94699 6.16969 9.30218 4.69566 12 4.69566Z"
+                                            fill="#FF4B26" />
+                                        <path
+                                            d="M16.6374 6.36061C16.9488 6.61711 17.4015 6.59859 17.6866 6.31336L19.9024 4.09758C20.226 3.77395 20.2029 3.24422 19.8573 2.94431C17.7425 1.10962 14.991 0 12 0V4.69566C13.7592 4.69566 15.3752 5.32078 16.6374 6.36061Z"
+                                            fill="#D93F21" />
+                                    </g>
+                                </svg>
+                            </span>
+                            Log in with Google
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Register -->
+    <!-- Reset Password -->
+    <div class="offcanvas offcanvas-end canvas-sidebar" id="reset">
+        <div class="canvas-header">
+            <h3 class="title fw-normal text-uppercase">Reset password</h3>
+            <span class="icon-close link icon-close-popup" data-bs-dismiss="offcanvas"></span>
+        </div>
+        <div class="canvas-body">
+            <p class="sub-title text-main-4">Please enter your registered email address to receive an email to reset
+                your password</p>
+            <form class="form-reset">
+                <div class="form-content">
+                    <fieldset class="tf-field">
+                        <input class="tf-input" type="text" placeholder required>
+                        <label class="tf-lable">Email *</label>
+                    </fieldset>
+                </div>
+                <button type="submit" class="tf-btn btn-fill w-100 fw-medium animate-btn">
+                    SUBMIT
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- /Reset Password -->
+    <!-- Shopping Cart -->
+    <div class="offcanvas offcanvas-end popup-shopping-cart" id="shoppingCart">
+        <div class="canvas-wrapper">
+            <div class="canvas-header">
+                <h3 class="title fw-normal text-uppercase">shopping cart</h3>
+                <span class="icon-close link icon-close-popup" data-bs-dismiss="offcanvas"></span>
+            </div>
+            <div class="wrap list-file-delete">
+                <div class="tf-mini-cart-threshold">
+                    <h6 class="text fw-normal text-uppercase">Spend <span class="fw-medium">$100</span> more to get
+                        <span class="fw-medium">Free
+                            Shipping</span>
+                    </h6>
+                    <div class="tf-progress-bar tf-progress-ship">
+                        <div class="value" style="width: 0%;" data-progress="75">
+                            <i class="icon icon-delivery"></i>
+                        </div>
+                    </div>
+                    <div class="tf-number-count">
+                        <p class="text-uppercase"><span class="prd-count">4</span> products</p>
+
+                        <a href="javascript:void(0)" class="tf-btn-line style-line-2 clear-file-delete">
+                            <span class="text-body">
+                                Empty cart
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="tf-mini-cart-wrap">
+                    <div class="tf-mini-cart-main">
+                        <div class="tf-mini-cart-sroll">
+                            <ul class="tf-mini-cart-items">
+                                <li class="tf-mini-cart-item file-delete">
+                                    <div class="tf-mini-cart-image">
+                                        <img src="images/products/product-24.jpg" alt="">
+                                    </div>
+                                    <div class="tf-mini-cart-info">
+                                        <a href="product-default.html" class="prd-name link">
+                                            Crystal Birthstone Eternity Circle Charm
+                                        </a>
+                                        <p class="type-select text-main-4">
+                                            Rose Gold / 50
+                                        </p>
+                                        <div class="prd-quantity">
+                                            <p class="text-caption">
+                                                Qty:
+                                            </p>
+                                            <div class="wg-quantity style-2">
+                                                <button class="btn-quantity minus-quantity"><i class="icon-minus"></i></button>
+                                                <input class="quantity-product" type="text" name="number" value="1">
+                                                <button class="btn-quantity plus-quantity"><i class="icon-plus"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="javascript:void(0)" class="tf-btn-line style-line-2 remove">
+                                            <span class="text-caption">
+                                                Remove
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <p class="tf-mini-card-price h6 fw-normal">
+                                        $130.00
+                                    </p>
+                                </li>
+                                <li class="tf-mini-cart-item file-delete">
+                                    <div class="tf-mini-cart-image">
+                                        <img src="{{asset('site/images/products/product-26.jpg')}}" alt="">
+                                    </div>
+                                    <div class="tf-mini-cart-info">
+                                        <a href="product-default.html" class="prd-name link">
+                                            Ball Bracelet
+                                        </a>
+                                        <p class="type-select text-main-4">
+                                            Rose Gold / 50
+                                        </p>
+                                        <div class="prd-quantity">
+                                            <p class="text-caption">
+                                                Qty:
+                                            </p>
+                                            <div class="wg-quantity style-2">
+                                                <button class="btn-quantity minus-quantity"><i class="icon-minus"></i></button>
+                                                <input class="quantity-product" type="text" name="number" value="1">
+                                                <button class="btn-quantity plus-quantity"><i class="icon-plus"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="javascript:void(0)" class="tf-btn-line style-line-2 remove">
+                                            <span class="text-caption">
+                                                Remove
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <p class="tf-mini-card-price h6 fw-normal">
+                                        $150.00
+                                    </p>
+                                </li>
+                                <li class="tf-mini-cart-item file-delete">
+                                    <div class="tf-mini-cart-image">
+                                        <img src="{{asset('site/images/products/product-28.jpg')}}" alt="">
+                                    </div>
+                                    <div class="tf-mini-cart-info">
+                                        <a href="product-default.html" class="prd-name link">
+                                            Engagement Ring in 18k Yellow Gold
+                                        </a>
+                                        <p class="type-select text-main-4">
+                                            Rose Gold / 50
+                                        </p>
+                                        <div class="prd-quantity">
+                                            <p class="text-caption">
+                                                Qty:
+                                            </p>
+                                            <div class="wg-quantity style-2">
+                                                <button class="btn-quantity minus-quantity"><i class="icon-minus"></i></button>
+                                                <input class="quantity-product" type="text" name="number" value="1">
+                                                <button class="btn-quantity plus-quantity"><i class="icon-plus"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="javascript:void(0)" class="tf-btn-line style-line-2 remove">
+                                            <span class="text-caption">
+                                                Remove
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <p class="tf-mini-card-price h6 fw-normal">
+                                        $130.00
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tf-mini-cart-bottom">
+                        <div class="tf-mini-cart-tool">
+                            <div class="tf-mini-cart-tool-btn btn-add-gift">
+                                <i class="icon icon-gift"></i>
+                                <p class="text-caption">Add gift wrap</p>
+                            </div>
+                            <div class="tf-mini-cart-tool-btn btn-add-note">
+                                <i class="icon icon-note"></i>
+                                <p class="text-caption">Order note</p>
+                            </div>
+                            <div class="tf-mini-cart-tool-btn btn-estimate-shipping">
+                                <i class="icon icon-delivery-3"></i>
+                                <p class="text-caption">Shipping</p>
+                            </div>
+                        </div>
+                        <div class="tf-mini-cart-bottom-wrap">
+                            <div class="tf-cart-totals-discounts">
+                                <h6 class="tf-cart-total-text fw-normal text-uppercase">total:</h6>
+                                <div class="tf-totals-total-value h6 fw-normal">$390.00</div>
+                            </div>
+                            <div class="tf-mini-cart-view-checkout">
+                                <a href="shop-cart.html" class="tf-btn w-100 style-2">
+                                    <span class="fw-medium">
+                                        GO TO CART
+                                    </span>
+                                </a>
+                                <a href="checkout.html" class="tf-btn btn-fill animate-btn w-100">
+                                    <span class="fw-medium">
+                                        CHECKOUT
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tf-mini-cart-tool-openable add-gift">
+                        <div class="overlay tf-mini-cart-tool-close"></div>
+                        <form action="#" class="tf-mini-cart-tool-content">
+                            <div class="tf-mini-cart-tool-text h5 fw-normal text-uppercase">Add gift wrap</div>
+                            <div class="tf-mini-cart-tool-text1">The product will be wrapped carefully.
+                                Fee is only <span class="text text-main">$10.00</span>. Do you want a
+                                gift wrap?</div>
+                            <div class="tf-cart-tool-btns">
+                                <button class="subscribe-button tf-btn w-100 btn-fill animate-btn" type="submit">
+                                    Add a Gift Wrap
+                                </button>
+                                <button type="button" class="tf-btn style-2 w-100 tf-mini-cart-tool-close">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tf-mini-cart-tool-openable add-note">
+                        <div class="overlay tf-mini-cart-tool-close"></div>
+                        <form action="#" class="tf-mini-cart-tool-content style-border">
+                            <label for="Cart-note" class="tf-mini-cart-tool-text h5 fw-normal text-uppercase">
+                                Order note
+                            </label>
+                            <textarea name="note" id="Cart-note" placeholder="Instruction for seller..." class="d-flex"></textarea>
+                            <div class="tf-cart-tool-btns">
+                                <button class="subscribe-button tf-btn w-100 btn-fill animate-btn" type="submit">
+                                    Save
+                                </button>
+                                <button type="button" class="tf-btn style-2 w-100 tf-mini-cart-tool-close">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tf-mini-cart-tool-openable estimate-shipping">
+                        <div class="overlay tf-mini-cart-tool-close"></div>
+                        <form id="shipping-form" class="tf-mini-cart-tool-content style-border">
+                            <div class="tf-mini-cart-tool-text h5 fw-normal text-uppercase">Shipping estimates</div>
+                            <div class="field">
+                                <p class="text-sm">Country</p>
+                                <div class="tf-select">
+                                    <select class="w-100" id="shipping-country-form" name="address[country]" data-default="">
+                                        <option value="Australia"
+                                            data-provinces='[["Australian Capital Territory","Australian Capital Territory"],["New South Wales","New South Wales"],["Northern Territory","Northern Territory"],["Queensland","Queensland"],["South Australia","South Australia"],["Tasmania","Tasmania"],["Victoria","Victoria"],["Western Australia","Western Australia"]]'>
+                                            Australia</option>
+                                        <option value="Austria" data-provinces='[]'>Austria</option>
+                                        <option value="Belgium" data-provinces='[]'>Belgium</option>
+                                        <option value="Canada" data-provinces='[["Ontario","Ontario"],["Quebec","Quebec"]]'>Canada
+                                        </option>
+                                        <option value="Czech Republic" data-provinces='[]'>Czechia</option>
+                                        <option value="Denmark" data-provinces='[]'>Denmark</option>
+                                        <option value="Finland" data-provinces='[]'>Finland</option>
+                                        <option value="France" data-provinces='[]'>France</option>
+                                        <option value="Germany" data-provinces='[]'>Germany</option>
+                                        <option selected value="United States"
+                                            data-provinces='[["Alabama","Alabama"],["California","California"],["Florida","Florida"]]'>
+                                            United States</option>
+                                        <option value="United Kingdom"
+                                            data-provinces='[["England","England"],["Scotland","Scotland"],["Wales","Wales"],["Northern Ireland","Northern Ireland"]]'>
+                                            United Kingdom</option>
+                                        <option value="India" data-provinces='[]'>India</option>
+                                        <option value="Japan" data-provinces='[]'>Japan</option>
+                                        <option value="Mexico" data-provinces='[]'>Mexico</option>
+                                        <option value="South Korea" data-provinces='[]'>South Korea</option>
+                                        <option value="Spain" data-provinces='[]'>Spain</option>
+                                        <option value="Italy" data-provinces='[]'>Italy</option>
+                                        <option value="Vietnam"
+                                            data-provinces='[["Ha Noi","Ha Noi"],["Da Nang","Da Nang"],["Ho Chi Minh","Ho Chi Minh"]]'>
+                                            Vietnam</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <p class="text-sm">State/Province</p>
+                                <div class="tf-select">
+                                    <select id="shipping-province-form" name="address[province]" data-default=""></select>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <p class="text-sm">Zipcode</p>
+                                <input type="text" data-opend-focus placeholder="41000" id="zipcode" name="address[zip]" value="">
+                            </div>
+                            <div id="zipcode-message" class="error" style="display: none;">
+                                We found one shipping rate available for undefined.
+                            </div>
+                            <div id="zipcode-success" class="success" style="display: none;">
+                                <p>We found one shipping rate available for your address:</p>
+                                <p class="standard">Standard at <span>$0.00</span> USD</p>
+                            </div>
+                            <div class="tf-cart-tool-btns">
+                                <button class="tf-btn w-100 btn-fill animate-btn" type="submit">
+                                    Estimate
+                                </button>
+                                <div class="tf-mini-cart-tool-primary tf-btn style-2 w-100 tf-mini-cart-tool-close">Close</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Shopping Cart -->
+    <!-- Quick View -->
+    <div class="modal modalCentered fade modal-quick-view" id="quickView">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+                <div class="tf-product-media-wrap tf-btn-swiper-item">
+                    <div dir="ltr" class="swiper tf-single-slide">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" data-color="gold">
+                                <div class="item">
+                                    <img class="lazyload" data-src="{{asset('site/images/products/detail/prd-detail-1.jpg')}}"
+                                        src="{{asset('site/images/products/detail/prd-detail-1.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide" data-color="rose">
+                                <div class="item">
+                                    <img class="lazyload" data-src="{{asset('site/images/products/detail/prd-detail-4.jpg')}}"
+                                        src="{{asset('site/images/products/detail/prd-detail-4.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide" data-color="titanium">
+                                <div class="item">
+                                    <img class="lazyload" data-src="{{asset('site/images/products/detail/prd-detail-7.jpg')}}"
+                                        src="{{asset('site/images/products/detail/prd-detail-7.jpg')}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nav-swiper-group style-3">
+                            <div class=" nav-thumbs thumbs-prev single-slide-prev">
+                                <span class="fw-normal">PRE</span>
+                            </div>
+                            <span class="text-main">/</span>
+                            <div class=" nav-thumbs thumbs-next single-slide-next">
+                                <span class="fw-normal">NEXT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tf-product-info-wrap">
+                    <div class="tf-product-info-inner tf-product-info-list">
+                        <div class="tf-product-info-heading">
+                            <a href="product-default.html" class="product-info-name h4 fw-normal text-uppercase link">
+                                engagement ring in 18k yellow gold
+                            </a>
+                            <div class="product-info-price">
+                                <div class="price-wrap">
+                                    <span class="price-new price-on-sale h4">$2,499.00</span>
+                                    <span class="price-old compare-at-price fw-normal h6">$2,899.00</span>
+                                    <p class="badges-on-sale">
+                                        <i class="icon-tag"></i>
+                                        <span class="number-sale" data-person-sale="30">
+                                            30% OFF
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="product-infor-sub text-main-4">
+                                Lorem ipsum dolor sit amet nec etiamconsectetur. Egestas cursus a maecenas massa facilisi adipiscing dolor iaculis. In
+                                mattis nec morbi.
+                            </p>
+                        </div>
+                        <div class="tf-product-info-variant">
+                            <div class="variant-picker-item variant-color">
+                                <div class="variant-picker-label h6 fw-normal">
+                                    Material:
+                                    <span class="variant-picker-label-value value-currentColor">gold</span>
+                                </div>
+                                <div class="variant-picker-values">
+                                    <div class="hover-tooltip color-btn style-image-square" data-color="gold" data-price="2,499.00">
+                                        <span class="check-color">
+                                            <img src="{{asset('site/images/products/material/yellow.jpg')}}" alt="">
+                                        </span>
+                                        <span class="tooltip">Gold</span>
+                                    </div>
+                                    <div class="hover-tooltip color-btn style-image-square" data-color="rose" data-price="2,499.00">
+                                        <span class="check-color">
+                                            <img src="{{asset('site/images/products/material/pink.jpg')}}" alt="">
+                                        </span>
+                                        <span class="tooltip">Rose</span>
+                                    </div>
+                                    <div class="hover-tooltip color-btn style-image-square" data-color="titanium" data-price="2,499.00">
+                                        <span class="check-color">
+                                            <img src="{{asset('site/images/products/material/gray.jpg')}}" alt="">
+                                        </span>
+                                        <span class="tooltip">Titanium</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="variant-picker-item variant-size">
+                                <div class="variant-picker-label h6 fw-normal">
+                                    Size:
+                                    <span class="variant-picker-label-value value-currentSize">48</span>
+                                </div>
+                                <div class="variant-picker-values">
+                                    <div class="btn-group">
+                                        <span class="size-btn active" data-size="48" data-price="2,499.00">48</span>
+                                        <span class="size-btn" data-size="50" data-price="999.00">50</span>
+                                        <span class="size-btn" data-size="52" data-price="1,999.00">52</span>
+                                        <span class="size-btn" data-size="54" data-price="2,199.00">54</span>
+                                    </div>
+                                    <a href="#sizeGuide" data-bs-toggle="offcanvas" class="tf-btn-line style-line-2 fw-normal">
+                                        Size Guide
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="variant-picker-item">
+                                <div class="variant-picker-label h6 fw-normal">Quantity</div>
+                                <div class="variant-picker-values">
+                                    <div class="wg-quantity">
+                                        <button class="btn-quantity btn-decrease"><i class="icon-minus"></i></button>
+                                        <input class="quantity-product" type="text" name="number" value="1">
+                                        <button class="btn-quantity btn-increase"><i class="icon-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tf-product-total-quantity">
+                            <div class="group-btn">
+                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="tf-btn btn-fill-2 animate-btn text-uppercase fw-medium">
+                                    <span class="text-line-clamp-1">
+                                        add to bag
+                                    </span>
+                                    <i class="icon-minus d-none d-sm-block"></i>
+                                    <span class="price-add d-none d-sm-block">$2,499.00</span>
+                                </a>
+                                <div class="group-btn-action">
+                                    <a href="javascript:void(0);" class="tf-btn-icon hover-tooltip btn-add-wishlist">
+                                        <span class="icon icon-heart-2"></span>
+                                        <span class="tooltip">Add to Wishlist</span>
+                                    </a>
+                                    <a href="#compare" data-bs-toggle="modal" aria-controls="compare" class="tf-btn-icon hover-tooltip">
+                                        <span class="icon icon-compare"></span>
+                                        <span class="tooltip">Compare</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="checkout.html" class="tf-btn w-100 text-uppercase fw-medium">
+                                buy it now
+                            </a>
+                        </div>
+                        <a href="product-default.html" class="tf-btn-line">
+                            <span class="text-body">View full details</span>
+                            <i class="icon icon-arrow-top-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Quick View -->
+    <!-- Compare -->
+    <div class="modal modalCentered fade modal-compare" id="compare">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <span class="icon-close-popup" data-bs-dismiss="modal">
+                    <i class="icon-close"></i>
+                </span>
+                <div class="modal-heading">
+                    <h3 class="title fw-normal text-uppercase">compare products</h3>
+                </div>
+                <div class="modal-body main-list-clear">
+                    <div class="tf-compare-inner">
+                        <div class="tf-compare-list list-empty">
+                            <p class="text-empty">Your compare is curently empty</p>
+                            <div class="tf-compare-item card_product--V01 file-delete">
+                                <div class="card_product-wrapper aspect-ratio-1">
+                                    <span class="remove icon-close"></span>
+                                    <a href="product-default.html" class="product-img">
+                                        <img src="{{asset('site/images/products/product-24.jpg')}}" data-src="{{asset('site/images/products/product-24.jpg')}}" alt="Image Product"
+                                            class="lazyload img-product">
+                                        <img src="{{asset('site/images/products/product-25.jpg')}}" data-src="{{asset('site/images/products/product-25.jpg')}}" alt="Image Product"
+                                            class="lazyload img-hover">
+                                    </a>
+                                </div>
+                                <div class="card_product-info text-center">
+                                    <a href="product-default.html" class="name-product link text-line-clamp-2">
+                                        Crystal Birthstone Eternity Circle Charm
+                                    </a>
+                                    <div class="price-wrap justify-content-center">
+                                        <span class="price-new">$3,370.00</span>
+                                        <span class="price-old fw-normal text-caption">$3,899.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tf-compare-item card_product--V01 file-delete">
+                                <div class="card_product-wrapper aspect-ratio-1">
+                                    <span class="remove icon-close"></span>
+                                    <a href="product-default.html" class="product-img">
+                                        <img src="{{asset('site/images/products/product-26.jpg')}}" data-src="{{asset('site/images/products/product-26.jpg')}}" alt="Image Product"
+                                            class="lazyload img-product">
+                                        <img src="{{asset('site/images/products/product-27.jpg')}}" data-src="{{asset('site/images/products/product-27.jpg')}}" alt="Image Product"
+                                            class="lazyload img-hover">
+                                    </a>
+                                </div>
+                                <div class="card_product-info text-center">
+                                    <a href="product-default.html" class="name-product link text-line-clamp-2">
+                                        Ball Bracelet
+                                    </a>
+                                    <div class="price-wrap justify-content-center">
+                                        <span class="price-new">$2,499.00</span>
+                                        <span class="price-old fw-normal text-caption">$2,899.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tf-compare-item card_product--V01 file-delete">
+                                <div class="card_product-wrapper aspect-ratio-1">
+                                    <span class="remove icon-close"></span>
+                                    <a href="product-default.html" class="product-img">
+                                        <img src="{{asset('site/images/products/product-28.jpg')}}" data-src="{{asset('site/images/products/product-28.jpg')}}" alt="Image Product"
+                                            class="lazyload img-product">
+                                        <img src="{{asset('site/images/products/product-29.jpg')}}" data-src="{{asset('site/images/products/product-29.jpg')}}" alt="Image Product"
+                                            class="lazyload img-hover">
+                                    </a>
+                                </div>
+                                <div class="card_product-info text-center">
+                                    <a href="product-default.html" class="name-product link text-line-clamp-2">
+                                        Engagement Ring in 18k Yellow Gold
+                                    </a>
+                                    <div class="price-wrap justify-content-center">
+                                        <span class="price-new">$2,499.00</span>
+                                        <span class="price-old fw-normal text-caption">$2,899.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tf-compare-item card_product--V01 file-delete">
+                                <div class="card_product-wrapper aspect-ratio-1">
+                                    <span class="remove icon-close"></span>
+                                    <a href="product-default.html" class="product-img">
+                                        <img src="{{asset('site/images/products/product-34.jpg')}}" data-src="{{asset('site/images/products/product-34.jpg')}}" alt="Image Product"
+                                            class="lazyload img-product">
+                                        <img src="{{asset('site/images/products/product-35.jpg')}}" data-src="{{asset('site/images/products/product-35.jpg')}}" alt="Image Product"
+                                            class="lazyload img-hover">
+                                    </a>
+                                </div>
+                                <div class="card_product-info text-center">
+                                    <a href="product-default.html" class="name-product link text-line-clamp-2">
+                                        Vine Ring in Platinum with a Tanzanite and Diamonds
+                                    </a>
+                                    <div class="price-wrap justify-content-center">
+                                        <span class="price-new">$2,499.00</span>
+                                        <span class="price-old fw-normal text-caption">$2,899.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group-btn">
+                        <a href="compare.html" class="tf-btn btn-fill animate-btn fw-medium">
+                            COMPARE <span class="count-item-compare">(4)</span>
+                        </a>
+                        <button type="button" class="tf-btn fw-medium clear-list-empty">
+                            <span>CLEAR ALL</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Compare -->
+    <!-- Quick Add -->
+    <div class="modal modalCentered fade modal-quick-add" id="quickAdd">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="tf-product-info-wrap mt-0">
+                    <div class="tf-product-info-inner tf-product-info-list mb-0">
+                        <div class="tf-product-mini-view">
+                            <a href="product-default.html" class="prd-image">
+                                <img src="{{asset('site/images/products/product-28.jpg')}}" alt="Image Product">
+                            </a>
+                            <div class="prd-content">
+                                <a href="product-default.html" class="prd-name link h6 fw-normal text-uppercase">
+                                    engagement ring in 18k yellow gold
+                                </a>
+                                <div class="price-wrap">
+                                    <span class="price-new price-on-sale h5">$2,499.00</span>
+                                    <span class="price-old compare-at-price">$2,899.00</span>
+                                </div>
+                            </div>
+                            <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
+                        </div>
+                        <div class="tf-product-info-variant">
+                            <div class="variant-picker-item variant-color">
+                                <div class="variant-picker-label h6 fw-normal">
+                                    Material:
+                                    <span class="variant-picker-label-value value-currentColor">gold</span>
+                                </div>
+                                <div class="variant-picker-values">
+                                    <div class="hover-tooltip color-btn style-image-square active" data-color="gold" data-price="2,499.00">
+                                        <span class="check-color">
+                                            <img src="{{asset('site/images/products/material/yellow.jpg')}}" alt="">
+                                        </span>
+                                        <span class="tooltip">Gold</span>
+                                    </div>
+                                    <div class="hover-tooltip color-btn style-image-square" data-color="rose" data-price="2,599.00">
+                                        <span class="check-color">
+                                            <img src="{{asset('site/images/products/material/pink.jpg')}}" alt="">
+                                        </span>
+                                        <span class="tooltip">Rose</span>
+                                    </div>
+                                    <div class="hover-tooltip color-btn style-image-square" data-color="titanium" data-price="2,699.00">
+                                        <span class="check-color">
+                                            <img src="{{asset('site/images/products/material/gray.jpg')}}" alt="">
+                                        </span>
+                                        <span class="tooltip">Titanium</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="variant-picker-item variant-size">
+                                <div class="variant-picker-label h6 fw-normal">
+                                    Size:
+                                    <span class="variant-picker-label-value value-currentSize">48</span>
+                                </div>
+                                <div class="variant-picker-values">
+                                    <div class="variant-picker-values">
+                                        <div class="btn-group">
+                                            <span class="size-btn active" data-size="48" data-price="2,499.00">48</span>
+                                            <span class="size-btn" data-size="50" data-price="999.00">50</span>
+                                            <span class="size-btn" data-size="52" data-price="1,999.00">52</span>
+                                            <span class="size-btn" data-size="54" data-price="2,199.00">54</span>
+                                        </div>
+                                        <a href="#sizeGuide" data-bs-toggle="offcanvas" class="tf-btn-line style-line-2 fw-normal">
+                                            <span class="text-caption">Size Guide</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="variant-picker-item">
+                                <div class="variant-picker-label h6 fw-normal">Quantity</div>
+                                <div class="variant-picker-values">
+                                    <div class="wg-quantity">
+                                        <button class="btn-quantity btn-decrease"><i class="icon-minus"></i></button>
+                                        <input class="quantity-product" type="text" name="number" value="1">
+                                        <button class="btn-quantity btn-increase"><i class="icon-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tf-product-total-quantity mb-0">
+                            <div class="group-btn">
+                                <a href="#shoppingCart" data-bs-toggle="offcanvas" class="tf-btn btn-fill-2 text-uppercase fw-medium animate-btn">
+
+                                    add to bag
+                                    <i class="icon-minus d-none d-sm-block"></i>
+                                    <span class="price-add d-none d-sm-block">$2,499.00</span>
+                                </a>
+                                <div class="group-btn-action">
+                                    <a href="javascript:void(0);" class="tf-btn-icon hover-tooltip btn-add-wishlist">
+                                        <span class="icon icon-heart-2"></span>
+                                        <span class="tooltip">Add to Wishlist</span>
+                                    </a>
+                                    <a href="#compare" data-bs-toggle="modal" aria-controls="compare" class="tf-btn-icon hover-tooltip">
+                                        <span class="icon icon-compare"></span>
+                                        <span class="tooltip">Compare</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="checkout.html" class="tf-btn w-100 text-uppercase fw-medium">
+                                buy it now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Quick Add -->
+    <!-- Size Guide -->
+    <div class="offcanvas offcanvas-end canvas-sidebar canvas-size" id="sizeGuide">
+        <div class="canvas-header">
+            <h3 class="title fw-normal text-uppercase">size guide</h3>
+            <span class="icon-close link icon-close-popup" data-bs-dismiss="offcanvas"></span>
+        </div>
+        <div class="canvas-body">
+            <div class="tf-page-size-chart-content">
+                <p class="title h5 fw-normal text-uppercase">know the size</p>
+                <ul class="resize-info-list">
+                    <li>1. Select an existing ring that fits the desired finger.</li>
+                    <li>2. Measure the internal diameter of the ring in mm.</li>
+                    <li>3. Select the diameter below to determine your ring size.</li>
+                </ul>
+                <div class="img-chart">
+                    <img src="{{asset('site/images/section/resize-chart.png')}}" data-src="images/section/resize-chart.png" alt="" class="lazyload">
+                </div>
+            </div>
+            <div class="tf-table-res-df">
+                <p class="title h5 fw-normal text-uppercase">Size chart</p>
+                <p class="sub text-main-4 mb-0">
+                    At Vemus Jewelry, we want your jewelry to fit flawlessly. Use our size guide to ensure the perfect
+                    match
+                    for rings, bracelets, and necklaces.
+                </p>
+            </div>
+            <div class="tf-sizeguide-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>INTERNAL DIAMETER (MM)</th>
+                            <th>US</th>
+                            <th>US</th>
+                            <th>EU</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>13.6</td>
+                            <td>E</td>
+                            <td>2.75</td>
+                            <td>42</td>
+                        </tr>
+                        <tr>
+                            <td>14.0</td>
+                            <td>F</td>
+                            <td>3.25</td>
+                            <td>44</td>
+                        </tr>
+                        <tr>
+                            <td>14.4</td>
+                            <td>G</td>
+                            <td>3.75</td>
+                            <td>45</td>
+                        </tr>
+                        <tr>
+                            <td>14.9</td>
+                            <td>H</td>
+                            <td>4.25</td>
+                            <td>46.5</td>
+                        </tr>
+                        <tr>
+                            <td>15.1</td>
+                            <td>I</td>
+                            <td>4.5</td>
+                            <td>47</td>
+                        </tr>
+                        <tr>
+                            <td>15.5</td>
+                            <td>J</td>
+                            <td>5</td>
+                            <td>48.5</td>
+                        </tr>
+                        <tr>
+                            <td>15.9</td>
+                            <td>K</td>
+                            <td>5.5</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>16.3</td>
+                            <td>l</td>
+                            <td>6</td>
+                            <td>51</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /Size Guide -->
+    <!-- Search -->
+    <div class="offcanvas offcanvas-top offcanvas-search" id="search">
+        <div class="offcanvas-content">
+            <div class="container">
+                <div class="popup-content">
+                    <form class="form-search">
+                        <fieldset>
+                            <input type="text" placeholder="ENTER YOUR SEARCH" class="" name="text" tabindex="0" value="" aria-required="true"
+                                required="">
+                        </fieldset>
+                        <button type="submit" class="link"><i class="icon icon-search"></i></button>
+                        <span class="icon-close-popup" data-bs-dismiss="offcanvas">
+                            <i class="icon-close"></i>
+                        </span>
+                    </form>
+                    <div class="tf-grid-layout sm-col-2">
+                        <div class="feature-wrap">
+                            <p class="title">QUICK LINK</p>
+                            <ul class="quick-link-list">
+                                <li><a href="shop-collection-list.html" class="link-item text-main-4 link">Best Sellers</a></li>
+                                <li><a href="shop-collection-list.html" class="link-item text-main-4 link">Bracelets</a></li>
+                                <li><a href="shop-collection-list.html" class="link-item text-main-4 link">Earrings</a></li>
+                                <li><a href="shop-collection-list.html" class="link-item text-main-4 link">Rings</a></li>
+                            </ul>
+                        </div>
+                        <div class="feature-wrap">
+                            <p class="title">SUGGESTION FOR YOU</p>
+                            <ul class="product-list">
+                                <li>
+                                    <div class="tf-product-mini-view">
+                                        <a href="product-default.html" class="prd-image">
+                                            <img src="{{asset('site/images/products/product-28.jpg')}}" alt="">
+                                        </a>
+                                        <div class="prd-content">
+                                            <a href="product-default.html" class="prd-name link text-uppercase">
+                                                engagement ring in 18k yellow gold
+                                            </a>
+                                            <div class="price-wrap">
+                                                <span class="price-new price-on-sale">$2,499.00</span>
+                                                <span class="price-old compare-at-price text-caption">$2,623.95</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tf-product-mini-view">
+                                        <a href="product-default.html" class="prd-image">
+                                            <img src="{{asset('site/images/products/product-32.jpg')}}" alt="">
+                                        </a>
+                                        <div class="prd-content">
+                                            <a href="product-default.html" class="prd-name link text-uppercase">
+                                                Infinite Lab - Grown Diamond Bangle
+                                            </a>
+                                            <div class="price-wrap">
+                                                <span class="price-new price-on-sale">$2,499.00</span>
+                                                <span class="price-old compare-at-price text-caption">$2,623.95</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="close" data-bs-dismiss="offcanvas"></span>
+    </div>
+    <!-- /Search -->
+
+    <!-- Toolbar -->
+    <div class="tf-toolbar-bottom">
+        <div class="toolbar-item">
+            <a href="shop-default.html">
+                <span class="toolbar-icon">
+                    <i class="icon icon-menu-home"></i>
+                </span>
+                <span class="toolbar-label">Shop</span>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="#search" data-bs-toggle="offcanvas">
+                <span class="toolbar-icon">
+                    <i class="icon icon-search-2"></i>
+                </span>
+                <span class="toolbar-label">Search</span>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="account-page.html">
+                <span class="toolbar-icon">
+                    <i class="icon icon-user-2"></i>
+                </span>
+                <span class="toolbar-label">Account</span>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="wishlist.html">
+                <span class="toolbar-icon">
+                    <i class="icon icon-hearth-3"></i>
+                    <span class="toolbar-count">0</span>
+                </span>
+                <span class="toolbar-label">Wishlist</span>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="shop-cart.html">
+                <span class="toolbar-icon">
+                    <i class="icon icon-cart-2"></i>
+                    <span class="toolbar-count">0</span>
+                </span>
+                <span class="toolbar-label">Cart</span>
+            </a>
+        </div>
+    </div>
+    <!-- /Toolbar -->
+    <!-- Unavailable -->
+    <div class=" modal modalCentered fade modal-unavailable" id="unavailable">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <span class="icon-close-popup" data-bs-dismiss="modal">
+                    <i class="icon-close"></i>
+                </span>
+                <div class="tf-product-notify">
+                    <h4 class="title">Notify me when it back in stock</h4>
+                    <p class="sub-title text-main-6">Enter your email address to be notified if the product becomes available
+                        again.</p>
+                    <form class="style-border form-notify">
+                        <div class="form-content-2">
+                            <input type="text" required="" placeholder="Name">
+                            <input type="text" required="" placeholder="Email*">
+                        </div>
+                        <button type="submit" class="tf-btn btn-fill-2 w-100 fw-medium animate-btn">
+                            submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Unavailable -->
+    <!-- Javascript -->
+    <script src="{{asset('site/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('site/js/jquery.min.js')}}"></script>
+    <script src="{{asset('site/js/swiper-bundle.min.js')}}"></script>
+    <script src="{{asset('site/js/carousel.js')}}"></script>
+    <script src="{{asset('site/js/bootstrap-select.min.js')}}"></script>
+    <script src="{{asset('site/js/lazysize.min.js')}}"></script>
+    <script src="{{asset('site/js/count-down.js')}}"></script>
+    <script src="{{asset('site/js/wow.min.js')}}"></script>
+    <script src="{{asset('site/js/infinityslide.js')}}"></script>
+    <script src="{{asset('site/js/gsap.min.js')}}"></script>
+    <script src="{{asset('site/js/ScrollTrigger.min.js')}}"></script>
+    <script src="{{asset('site/js/SplitText.min.js')}}"></script>
+    <script src="{{asset('site/js/main.js')}}"></script>
+    <script src="{{asset('site/js/sibforms.js')}}" defer></script>
+    <script>
+        window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+        window.LOCALE = 'en';
+        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+
+        window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+
+        window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+
+        window.translation = {
+            common: {
+                selectedList: '{quantity} list selected',
+                selectedLists: '{quantity} lists selected'
+            }
+        };
+
+        var AUTOHIDE = Boolean(0);
+    </script>
+</body>
+
+
+<!-- Mirrored from themesflat.co/html/vemus/home-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Mar 2026 11:56:29 GMT -->
+</html>

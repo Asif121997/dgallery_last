@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1️⃣ WWW-ni sil (https://www.yoxla.az → https://yoxla.az)
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+
+    # 2️⃣ HTTPS məcbur et (http → https)
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # 3️⃣ Laravel public qovluğuna yönləndir
+    RewriteRule ^$ public/ [L]
+    RewriteRule (.*) public/$1 [L]
+</IfModule>
+
+<Files 403.shtml>
+    order allow,deny
+    allow from all
+</Files>
+
+# 4️⃣ IP bloklama (qalır)
+deny from 195.231.67.25

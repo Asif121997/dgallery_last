@@ -1,0 +1,13 @@
+
+/*# sourceMappingURL=custom.min.css.map */
+.color-block{
+	width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.cke_notifications_area{
+    display: none;
+}
+#productForm .avatar-sm{
+    height: auto!important;
+}
