@@ -6,7 +6,7 @@
 <!--<![endif]-->
 
 
-<!-- Mirrored from themesflat.co/html/vemus/home-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Mar 2026 11:55:49 GMT -->
+
 <head>
     <meta charset="utf-8">
     <title>Vemus - Jewelry Ecommerce HTML Template</title>
